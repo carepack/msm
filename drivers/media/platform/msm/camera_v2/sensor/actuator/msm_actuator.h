@@ -19,6 +19,14 @@
 #include <media/msmb_camera.h>
 #include "msm_camera_i2c.h"
 
+
+#define ACTUATOR_START_ADDR                  0x06
+#define ACTUATOR_EEPROM_SADDR                (0x50 >> 1)
+#define ACTUATOR_MACRO_ADDR                  0x08
+#define ACTUATOR_MARGIN                      30
+#define ACTUATOR_MIN_MOVE_RANGE              200 // TBD
+
+
 #define DEFINE_MSM_MUTEX(mutexname) \
 	static struct mutex mutexname = __MUTEX_INITIALIZER(mutexname)
 

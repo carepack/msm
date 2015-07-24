@@ -34,11 +34,6 @@ DEFINE_MSM_MUTEX(msm_actuator_mutex);
 //extern uint8_t imx111_afcalib_data[4];
 #else
 /* modification qct's af calibration routines */
-#define ACTUATOR_EEPROM_SADDR                (0x50 >> 1)
-#define ACTUATOR_START_ADDR                  0x06
-#define ACTUATOR_MACRO_ADDR                  0x08
-#define ACTUATOR_MARGIN                      30
-#define ACTUATOR_MIN_MOVE_RANGE              200 // TBD
 #endif
 
 #define ACTUATOR_EEPROM_SLAVEADDR                (0x20)
@@ -594,7 +589,7 @@ int32_t msm_actuator_i2c_read_b_eeprom(struct msm_camera_i2c_client *dev_client,
        return rc;
 }
 
-static int32_t msm_actuator_init_step_table(struct msm_actuator_ctrl_t *a_ctrl,
+int32_t msm_actuator_init_step_table(struct msm_actuator_ctrl_t *a_ctrl,
             struct msm_actuator_set_info_t *set_info)
 {
        int32_t rc = 0;
